@@ -1,3 +1,4 @@
+
 /**
     * You are going to write code to store a list of participant names for a 
     * local event. You will create an ArrayList for Strings, then accept user 
@@ -5,10 +6,10 @@
     * you can make:
 
     * B Level:
-    * Accept input from users and add names to the ArrayList.
+    * Accept input from users and add names to the ArrayList. (done)
 
     * B+ Level:
-    * Accept names from users and stop accepting input when the user enters "end". 
+    * Accept names from users and stop accepting input when the user enters "end". (done) 
     * After this, the full list of names should be printed, one name per line.
 
     * A- Level:
@@ -23,9 +24,36 @@
     * ignored, and no change is made to the list.
 */
 import java.util.*;
+
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         Scanner scanner = new Scanner(System.in);
+        ArrayList<String> participantNames = new ArrayList<>();
+
+        while (true) {
+            System.out.println("Enter a participants name:");
+            String name = scanner.nextLine();
+            if (name.equals("end")) {
+                break;
+            }
+            if (participantNames.contains(name)) {
+                System.out.println("This name already exsits. Do you want to remove it?");
+                String response = scanner.nextLine();
+
+                if (response.equals("yes")) {
+                    participantNames.remove(name);
+
+                } else if (response.equals("no")) {
+                }
+            } else {
+                participantNames.add(name);
+            }
+
+        }
+
+        for (String name : participantNames) {
+            System.out.println(name);
+        }
     }
 }
